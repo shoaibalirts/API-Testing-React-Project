@@ -9,9 +9,10 @@ export default function AvailablePlaces({ onSelectPlace }) {
   useEffect(() => {
     async function fetchPlaces() {
       const response = await fetch(url);
-      const resData = response.json();
+      const resData = await response.json();
       setAvailablePlaces(resData.places);
     }
+    fetchPlaces();
   }, []);
 
   console.log(availablePlaces);
